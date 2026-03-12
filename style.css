@@ -465,17 +465,40 @@ margin-bottom:1.4em;
 
 
 /* =========================
-ABOUT PAGE LAYOUT
+ABOUT PAGE
 ========================= */
 
-.about-page{
-display:flex;
-flex-direction:column;
+.bio-page{
+
+background:#0029bd;  /* blue background */
+
 min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:flex-start;   /* move text to top */
+
+padding-top:160px;        /* space from header */
+
+padding-left:clamp(20px,5vw,120px);
+padding-right:clamp(20px,5vw,120px);
+
 }
 
-.about-page .bio-page{
-flex:1;
+/* text styling */
+
+.bio-text{
+
+max-width:900px;
+
+font-family:Helvetica, Arial, sans-serif;
+font-weight:bold;
+
+font-size:clamp(22px,2.6vw,44px);
+line-height:1.1;
+
+color:white;
+
 }
 
 
