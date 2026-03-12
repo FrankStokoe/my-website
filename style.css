@@ -1,0 +1,521 @@
+/* =========================
+GLOBAL
+========================= */
+
+html{
+height:100%;
+scrollbar-gutter:stable;
+}
+
+body{
+margin:0;
+background:black;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+
+min-height:100vh;
+}
+
+
+/* =========================
+PAGE WIDTH SYSTEM
+========================= */
+
+.header-inner,
+.grid,
+.media-grid,
+.site-footer{
+
+max-width:clamp(1200px,90vw,2200px);
+margin:auto;
+
+padding-left:clamp(12px,1.5vw,20px);
+padding-right:clamp(12px,1.5vw,20px);
+
+}
+
+
+/* =========================
+HEADER
+========================= */
+
+.site-header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+
+z-index:100;
+
+pointer-events:none;
+
+}
+
+.header-inner{
+
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+
+align-items:center;
+
+padding-top:clamp(16px,2vw,32px);
+padding-bottom:clamp(16px,2vw,32px);
+
+font-size:clamp(8px,1.3vw,16px);
+font-weight:600;
+
+}
+
+.nav-link{
+
+pointer-events:auto;
+
+text-decoration:none;
+color:white;
+transition:.2s;
+
+text-shadow:
+0 0 3px rgba(0,123,255,0.8),
+0 0 10px rgba(0,123,255,0.6);
+
+}
+
+.nav-link:hover{
+color:#007BFF;
+}
+
+.left{text-align:left;}
+.center{text-align:center;}
+.right{text-align:right;}
+
+
+/* =========================
+INDEX GRID
+========================= */
+
+.grid{
+
+padding-top:120px;
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+
+gap:clamp(12px,1.5vw,20px);
+
+}
+
+/* =========================
+INDEX GRID RESPONSIVE
+========================= */
+
+@media (max-width:900px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:500px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* hover image support */
+
+.image-hover{
+
+position:absolute;
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+opacity:0;
+transition:opacity .3s ease;
+
+}
+
+/* show hover image on hover */
+
+.tile:hover .image-hover{
+opacity:1;
+}
+
+/* hide default video when hovering */
+
+.tile:hover .video-default{
+opacity:0;
+}
+
+/* =========================
+INDEX TILES
+========================= */
+
+.tile{
+
+position:relative;
+aspect-ratio:4/5;
+
+overflow:hidden;
+cursor:pointer;
+
+}
+
+.tile video{
+
+position:absolute;
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+transition:opacity .3s ease;
+
+}
+
+.video-default{opacity:1;}
+.video-hover{opacity:0;}
+
+.tile:hover .video-default{opacity:0;}
+.tile:hover .video-hover{opacity:1;}
+
+
+/* =========================
+INDEX LIGHTBOX
+========================= */
+
+#lightbox{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+backdrop-filter:blur(8px) brightness(.35);
+
+z-index:200;
+
+}
+
+#lightbox video{
+
+max-width:85%;
+max-height:85%;
+
+border-radius:3px;
+
+}
+
+/* =========================
+GALLERY GRID
+========================= */
+
+.media-grid{
+
+padding-top:80px;
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+
+gap:clamp(12px,1.5vw,20px);
+
+grid-auto-rows:8px;
+
+}
+
+@media (max-width:1400px){
+.media-grid{grid-template-columns:repeat(3,1fr);}
+}
+
+@media (max-width:900px){
+.media-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media (max-width:600px){
+.media-grid{grid-template-columns:1fr;}
+}
+
+
+/* =========================
+GALLERY TOGGLE
+========================= */
+
+.gallery-toggle{
+
+max-width:clamp(1200px,90vw,2200px);
+margin:auto;
+
+/* match page width system */
+
+padding-left:clamp(12px,1.5vw,20px);
+padding-right:clamp(12px,1.5vw,20px);
+
+margin-top:20px;
+margin-bottom:10px;
+
+display:flex;
+justify-content:center;
+
+/* button spacing */
+
+gap:clamp(24px,3ch,48px);
+
+font-size:clamp(8px,1.3vw,16px);
+font-weight:600;
+
+position:sticky;
+top:60px;
+
+z-index:50;
+
+}
+
+/* active state */
+
+.toggle-btn.active{
+color:#007BFF;
+}
+
+.hidden{
+display:none;
+}
+
+
+/* =========================
+FUTURE TILES
+========================= */
+
+.media-tile{
+
+overflow:hidden;
+
+}
+
+.media-tile img,
+.media-tile video{
+
+width:100%;
+height:auto;
+
+display:block;
+
+}
+
+
+.media-tile video{
+object-fit:cover;
+}
+
+.media-tile{
+
+break-inside:avoid;
+margin-bottom:clamp(12px,1.5vw,20px);
+
+overflow:hidden;
+
+}
+
+/* =========================
+FEATURE TILE
+========================= */
+
+.media-tile.feature{
+
+grid-column:span 2;
+
+}
+
+.media-tile.feature img,
+.media-tile.feature video{
+
+width:100%;
+height:auto;
+
+}
+
+/* =========================
+GALLERY LIGHTBOX
+========================= */
+
+#gallery-lightbox{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+backdrop-filter:blur(8px) brightness(.35);
+
+z-index:300;
+
+}
+
+.lightbox-content{
+
+display:flex;
+
+align-items:flex-end;
+justify-content:center;
+
+gap:30px;
+
+max-width:90vw;
+max-height:90vh;
+
+margin:auto;
+
+}
+
+.lightbox-media{
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+}
+
+.lightbox-media img,
+.lightbox-media video{
+
+max-width:65vw;
+max-height:90vh;
+
+border-radius:5px;
+
+display:block;
+
+}
+
+.lightbox-description{
+
+font-family:Helvetica, Arial, sans-serif;
+font-weight:bold;
+
+text-align:left;
+
+max-width:280px;
+
+align-self:flex-end;
+
+padding-right:30px;
+
+color:white;
+
+font-size:clamp(12px,0.9vw,16px);
+
+line-height:1.5;
+
+}
+
+
+/* =========================
+ABOUT PAGE
+========================= */
+
+.bio-page{
+
+padding-top:120px;
+
+display:flex;
+justify-content:center;
+
+}
+
+.bio-text{
+
+max-width:60ch;
+width:100%;
+
+font-family:Helvetica, Arial, sans-serif;
+
+font-size:clamp(11px,1.2vw,15px);
+
+line-height:1.6;
+
+letter-spacing:0.015em;
+
+color:rgba(255,255,255,0.9);
+
+}
+
+.bio-text p{
+margin-top:0;
+margin-bottom:1.4em;
+}
+
+
+/* =========================
+ABOUT PAGE LAYOUT
+========================= */
+
+.about-page{
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+.about-page .bio-page{
+flex:1;
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+.site-footer{
+width:100%;
+}
+
+.footer-inner{
+
+max-width:clamp(1200px,90vw,2200px);
+margin:auto;
+
+
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+
+padding-top:clamp(20px,3vw,40px);
+padding-bottom:clamp(20px,3vw,40px);
+
+font-size:clamp(8px,1.3vw,16px);
+font-weight:600;
+
+}
+
+.footer-inner a{
+text-decoration:none;
+color:white;
+}
+
+.footer-inner a:hover{
+color:#007BFF;
+}
+
+.footer-name{text-align:center;}
+
+.footer-inner a:first-child{text-align:left;}
+.footer-inner a:last-child{text-align:right;}
+
+
