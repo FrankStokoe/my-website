@@ -262,7 +262,7 @@ margin:auto;
 padding-left:clamp(12px,1.5vw,20px);
 padding-right:clamp(12px,1.5vw,20px);
 
-margin-top:20px;
+margin: top 20px;
 margin-bottom:10px;
 
 display:flex;
@@ -276,7 +276,7 @@ font-size:clamp(8px,1.3vw,16px);
 font-weight:600;
 
 position:sticky;
-top:60px;
+top:80px;
 
 z-index:50;
 
