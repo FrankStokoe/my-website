@@ -82,7 +82,7 @@ lightboxDescription.innerHTML = "";
 if(type === "video"){
 
 lightboxMedia.innerHTML = `
-<video controls autoplay>
+<video controls autoplay muted playsinline>
 <source src="${media}">
 </video>
 `;
