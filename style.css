@@ -34,6 +34,51 @@ padding-right:clamp(12px,1.5vw,20px);
 
 }
 
+/* LANDING PAGE */
+
+.landing-page{
+margin:0;
+height:100vh;
+overflow:hidden;
+}
+
+/* VIDEO */
+
+.landing-video{
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+z-index:-1;
+}
+
+/* CENTER BUTTON */
+
+.landing-center{
+position:absolute;
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+}
+
+/* ENTER BUTTON */
+
+.landing-enter{
+font-family:Helvetica, Arial, sans-serif;
+font-weight:600;
+
+font-size:clamp(28px,4vw,60px);
+
+color:white;
+text-decoration:none;
+}
+
 
 /* =========================
 HEADER
@@ -143,7 +188,7 @@ opacity:.25;
 }
 
 /* =========================
-INDEX GRID
+SELECTED WORKS GRID
 ========================= */
 
 .grid{
@@ -158,7 +203,7 @@ gap:clamp(12px,1.5vw,20px);
 }
 
 /* =========================
-INDEX GRID RESPONSIVE
+SELECTED WORKS GRID RESPONSIVE
 ========================= */
 
 @media (max-width:900px){
@@ -205,7 +250,7 @@ opacity:0;
 }
 
 /* =========================
-INDEX TILES
+SELECTED WORKS TILES
 ========================= */
 
 .tile{
@@ -238,7 +283,7 @@ transition:opacity .3s ease;
 
 
 /* =========================
-INDEX LIGHTBOX
+SELECTED WORKS LIGHTBOX
 ========================= */
 
 #lightbox{
